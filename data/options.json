@@ -1,0 +1,17 @@
+{
+  "debug": false,
+  "cameras": [
+    {
+      "id": "000000235900",
+      "host": "192.168.31.239",
+      "username": "admin",
+      "password": "",
+      "createevent": {
+        "motionOn": "0:1:0:30:0:1:Motion detection:7f:0:000000235900:0:1:01:ffff1",
+        "motionOff": "0:0:0:30:0:1:Motion detection:7f:0:000000235900:0:1:01:ffff1",
+        "soundOn": "1:1:0:30:8:1:Sound detection:7f:0:000000235900:0:1:02:fff1f",
+        "soundOff": "1:0:0:30:8:1:Sound detection:7f:0:000000235900:0:1:02:fff1f"
+      }
+    }
+  ]
+}

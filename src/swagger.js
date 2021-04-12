@@ -7,4 +7,5 @@ const swaggerDocument = require("./swaggerDocument.json");
  * */
 module.exports = async function (app) {
   app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+  console.log(`swagger is available on the path /swagger`);
 };
