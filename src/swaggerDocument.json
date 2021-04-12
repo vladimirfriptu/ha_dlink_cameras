@@ -1,0 +1,33 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "DLink cameras manager API",
+    "description": "Документация по апи камер DLink",
+    "version": "0.0.1"
+  },
+  "paths": {
+    "/status": {
+      "get": {
+        "summary": "Статус сервиса",
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Статус состояния сервиса",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

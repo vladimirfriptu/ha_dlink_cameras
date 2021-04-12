@@ -1,0 +1,18 @@
+{
+  "name": "DLink cameras",
+  "version": "0.0.1",
+  "slug": "dlink_cameras",
+  "description": "DLink cameras manager",
+  "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
+  "startup": "application",
+  "boot": "auto",
+  "homeassistant_api": true,
+  "url": "https://github.com/vladimirfriptu/ha_dlink_cameras",
+  "options": {
+    "debug": false
+  },
+  "schema": {
+    "debug": "bool"
+  },
+  "map": ["config:rw"]
+}
