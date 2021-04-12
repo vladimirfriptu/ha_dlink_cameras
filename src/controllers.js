@@ -28,11 +28,11 @@ module.exports = function (app, camerasOptions) {
       })
   );
 
-  app.get("/api/v1/status", function (req, res) {
+  app.get("/api/status", function (req, res) {
     res.status(200).json({ status: "active" });
   });
 
-  app.get("/api/v1/cameras", function (req, res) {
+  app.get("/api/cameras", function (req, res) {
     if (cameras.length) {
       res.status(200).json({
         data: cameras.map(
@@ -48,7 +48,7 @@ module.exports = function (app, camerasOptions) {
     }
   });
 
-  app.patch("/api/v1/cameras/:cameraId", async function (req, res) {
+  app.patch("/api/cameras/:cameraId", async function (req, res) {
     const cameraId = req.params.cameraId;
     const { event } = req.body;
 

@@ -6,7 +6,7 @@
     "version": "0.0.1"
   },
   "paths": {
-    "/api/v1/status": {
+    "/api/status": {
       "get": {
         "summary": "Статус сервиса",
         "description": "",
@@ -32,7 +32,7 @@
         }
       }
     },
-    "/api/v1/cameras/{cameraId}": {
+    "/api/cameras/{cameraId}": {
       "patch": {
         "summary": "Управление сенсорами камеры",
         "description": "Ручка для управления датчиками, доступными камере. Для правильной работы нужна инициализация камеры в настройках",
@@ -121,7 +121,7 @@
         }
       }
     },
-    "/api/v1/cameras": {
+    "/api/cameras": {
       "get": {
         "summary": "Получить все настройки камер",
         "responses": {
