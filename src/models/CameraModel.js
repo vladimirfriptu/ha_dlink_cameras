@@ -27,6 +27,8 @@ class CameraModel {
 
     this.isMotionSensorEnabled = false;
     this.isSoundSensorEnabled = false;
+
+    this.enableAllSensors();
   }
 
   async enableMotionSensor() {
@@ -40,6 +42,8 @@ class CameraModel {
       );
 
       this.isMotionSensorEnabled = true;
+
+      return {};
     } catch (err) {
       console.log(`${this.id} camera > enableMotionSensor error`, err);
       // todo обработка ошибок
@@ -60,6 +64,8 @@ class CameraModel {
       );
 
       this.isMotionSensorEnabled = false;
+
+      return {};
     } catch (err) {
       console.log(`${this.id} camera > disableMotionSensor error`, err);
       // todo обработка ошибок
@@ -80,6 +86,8 @@ class CameraModel {
       );
 
       this.isSoundSensorEnabled = true;
+
+      return {};
     } catch (err) {
       console.log(`${this.id} camera > enableSoundSensor error`, err);
       // todo обработка ошибок
@@ -100,6 +108,8 @@ class CameraModel {
       );
 
       this.isSoundSensorEnabled = false;
+
+      return {};
     } catch (err) {
       console.log(`${this.id} camera > disableSoundSensor error`, err);
       // todo обработка ошибок
@@ -107,6 +117,36 @@ class CameraModel {
         error: err,
       };
     }
+  }
+
+  async disableAllSensors() {
+    const res = await Promise.all([
+      this.disableMotionSensor(),
+      this.disableSoundSensor(),
+    ]);
+
+    for (const key in res) {
+      if (res[key]?.error) {
+        return res[key].error;
+      }
+    }
+
+    return {};
+  }
+
+  async enableAllSensors() {
+    const res = await Promise.all([
+      this.enableMotionSensor(),
+      this.enableSoundSensor(),
+    ]);
+
+    for (const key in res) {
+      if (res[key]?.error) {
+        return res[key].error;
+      }
+    }
+
+    return {};
   }
 }
 

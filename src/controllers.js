@@ -1,5 +1,5 @@
 const { Express } = require("express");
-const CameraModel = require("./models/CameraModel");
+const CamerasCache = require("./CamerasCache");
 
 /**
  * @param app {Express}
@@ -17,31 +17,20 @@ const CameraModel = require("./models/CameraModel");
  * }[]}
  * */
 module.exports = function (app, camerasOptions) {
-  const cameras = camerasOptions.map(
-    (el) =>
-      new CameraModel({
-        createevent: el.createevent,
-        password: el.password,
-        host: el.host,
-        id: el.id,
-        username: el.username,
-      })
-  );
+  const camerasCache = new CamerasCache(camerasOptions);
 
   app.get("/api/status", function (req, res) {
     res.status(200).json({ status: "active" });
   });
 
   app.get("/api/cameras", function (req, res) {
-    if (cameras.length) {
+    if (camerasCache.size) {
       res.status(200).json({
-        data: cameras.map(
-          ({ id, isSoundSensorEnabled, isMotionSensorEnabled }) => ({
-            id,
-            isSoundSensorEnabled,
-            isMotionSensorEnabled,
-          })
-        ),
+        data: camerasCache.getFilteredFields([
+          "id",
+          "isSoundSensorEnabled",
+          "isMotionSensorEnabled",
+        ]),
       });
     } else {
       res.status(404).json({ error: "Не настроены камеры" });
@@ -57,12 +46,12 @@ module.exports = function (app, camerasOptions) {
       return;
     }
 
-    const camera = cameras.find((el) => el.id === cameraId);
-
-    if (!camera) {
+    if (!camerasCache.has(cameraId)) {
       res.status(404).json({ error: `camera ${cameraId} not found` });
       return;
     }
+
+    const camera = camerasCache.getById(cameraId);
 
     if (!typeof camera[event] === "function") {
       res
@@ -71,7 +60,12 @@ module.exports = function (app, camerasOptions) {
       return;
     }
 
-    await camera[event]();
+    const { error } = await camera[event]();
+
+    if (error) {
+      res.status(403).json({ error });
+      return;
+    }
 
     res.status(200).send();
   });
