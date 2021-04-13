@@ -32,6 +32,19 @@
   "schema": {
     "debug": "bool",
     "isSwaggerEnabled": "bool",
-    "cameras": []
+    "cameras": [
+      {
+        "entityId": "str",
+        "host": "str",
+        "username": "str",
+        "password": "str",
+        "createevent": {
+          "motionOn": "str",
+          "motionOff": "str",
+          "soundOn": "str",
+          "soundOff": "str"
+        }
+      }
+    ]
   }
 }
