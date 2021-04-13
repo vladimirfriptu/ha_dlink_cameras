@@ -1,4 +1,4 @@
-const { updateCameraSettings } = require("../api");
+const { updateCameraSettings, changeHaSensorValue } = require("../api");
 
 class CameraModel {
   /**
@@ -31,6 +31,14 @@ class CameraModel {
     this.enableAllSensors();
   }
 
+  get motionEntityId() {
+    return `${this.entityId}_motion_detection`;
+  }
+
+  get soundEntityId() {
+    return `${this.entityId}_sound_detection`;
+  }
+
   /**
    * @param fields {Array<'id' | 'host' | 'auth' | 'createevent' | 'isMotionSensorEnabled' | 'isSoundSensorEnabled'>}
    * @return Partial<CameraModel>
@@ -58,6 +66,8 @@ class CameraModel {
         this.auth
       );
 
+      await changeHaSensorValue("turn_on", this.motionEntityId);
+
       this.isMotionSensorEnabled = true;
 
       return {};
@@ -80,11 +90,13 @@ class CameraModel {
         this.auth
       );
 
+      await changeHaSensorValue("turn_off", this.motionEntityId);
+
       this.isMotionSensorEnabled = false;
 
       return {};
     } catch (err) {
-      console.log(`${this.id} camera > disableMotionSensor error`, err);
+      console.log(`${this.entityId} camera > disableMotionSensor error`, err);
       // todo обработка ошибок
       return {
         error: err,
@@ -101,6 +113,8 @@ class CameraModel {
         this.createevent.soundOn,
         this.auth
       );
+
+      await changeHaSensorValue("turn_on", this.soundEntityId);
 
       this.isSoundSensorEnabled = true;
 
@@ -123,6 +137,8 @@ class CameraModel {
         this.createevent.soundOff,
         this.auth
       );
+
+      await changeHaSensorValue("turn_off", this.soundEntityId);
 
       this.isSoundSensorEnabled = false;
 
@@ -165,6 +181,8 @@ class CameraModel {
 
     return {};
   }
+
+  update;
 }
 
 module.exports = CameraModel;

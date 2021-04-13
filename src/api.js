@@ -25,14 +25,8 @@ const haApi = axios.create({
   },
 });
 
-/**
- * @param entityId {string}
- * @param value {'on' | 'off'}
- *
- * @return {axios.AxiosPromise<void>}
- * */
-function changeHaSensorValue(entityId, value) {
-  return haApi.post(`/input_boolean/turn_${value}`, {
+function changeHaSensorValue(service, entityId) {
+  return haApi.post(`/input_boolean/${service}`, {
     entity_id: entityId,
   });
 }

@@ -3,7 +3,7 @@
   "isSwaggerEnabled": true,
   "cameras": [
     {
-      "entityId": "000000235900",
+      "entityId": "kitchen_camera",
       "host": "192.168.31.239",
       "username": "admin",
       "password": "",

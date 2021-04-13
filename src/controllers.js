@@ -1,6 +1,5 @@
 const { Express } = require("express");
 const CamerasCache = require("./CamerasCache");
-const { changeHaSensorValue } = require("./api");
 
 /**
  * @param app {Express}
@@ -68,19 +67,6 @@ module.exports = function (app, camerasOptions) {
       return;
     }
 
-    const haValue = event.includes("On") ? "on" : "off";
-
-    try {
-      await changeHaSensorValue(entityId, haValue);
-
-      res.status(200).send();
-    } catch (err) {
-      console.log(err);
-
-      res.status(403).json({
-        error: "Не удалось изменить состояния датчика в home assistant",
-        meta: err,
-      });
-    }
+    res.status(200).send();
   });
 };
