@@ -1,9 +1,9 @@
-const updateCameraSettings = require("../api");
+const { updateCameraSettings } = require("../api");
 
 class CameraModel {
   /**
    * @param fields {{
-   *  id: string,
+   *  entityId: string,
    *  host: string,
    *  username: string,
    *  password: string,
@@ -17,7 +17,7 @@ class CameraModel {
    * }}
    * */
   constructor(fields) {
-    this.id = fields.id;
+    this.entityId = fields.entityId;
     this.host = fields.host;
     this.auth = {
       username: fields.username,
@@ -29,6 +29,23 @@ class CameraModel {
     this.isSoundSensorEnabled = false;
 
     this.enableAllSensors();
+  }
+
+  /**
+   * @param fields {Array<'id' | 'host' | 'auth' | 'createevent' | 'isMotionSensorEnabled' | 'isSoundSensorEnabled'>}
+   * @return Partial<CameraModel>
+   * */
+  getFilteredFields(fields) {
+    return fields.reduce(
+      (acc, current) =>
+        this.hasOwnProperty(current)
+          ? {
+              ...acc,
+              [current]: this[current],
+            }
+          : acc,
+      {}
+    );
   }
 
   async enableMotionSensor() {
@@ -45,7 +62,7 @@ class CameraModel {
 
       return {};
     } catch (err) {
-      console.log(`${this.id} camera > enableMotionSensor error`, err);
+      console.log(`${this.entityId} camera > enableMotionSensor error`, err);
       // todo обработка ошибок
       return {
         error: err,
@@ -89,7 +106,7 @@ class CameraModel {
 
       return {};
     } catch (err) {
-      console.log(`${this.id} camera > enableSoundSensor error`, err);
+      console.log(`${this.entityId} camera > enableSoundSensor error`, err);
       // todo обработка ошибок
       return {
         error: err,
@@ -111,7 +128,7 @@ class CameraModel {
 
       return {};
     } catch (err) {
-      console.log(`${this.id} camera > disableSoundSensor error`, err);
+      console.log(`${this.entityId} camera > disableSoundSensor error`, err);
       // todo обработка ошибок
       return {
         error: err,

@@ -32,14 +32,14 @@
         }
       }
     },
-    "/api/cameras/{cameraId}": {
+    "/api/cameras/{entityId}": {
       "patch": {
         "summary": "Управление сенсорами камеры",
         "description": "Ручка для управления датчиками, доступными камере. Для правильной работы нужна инициализация камеры в настройках",
         "parameters": [
           {
             "in": "path",
-            "name": "cameraId",
+            "name": "entityId",
             "schema": {
               "type": "string"
             },
@@ -132,12 +132,12 @@
                 "example": {
                   "data": [
                     {
-                      "id": "000000235900",
+                      "entityId": "000000235900",
                       "isSoundSensorEnabled": false,
                       "isMotionSensorEnabled": true
                     },
                     {
-                      "id": "000000235900",
+                      "entityId": "000000235900",
                       "isSoundSensorEnabled": true,
                       "isMotionSensorEnabled": true
                     }

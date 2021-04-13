@@ -24,22 +24,14 @@ module.exports = class CamerasCache {
     const res = [];
 
     this.cameras.forEach((el) => {
-      const obj = {};
-
-      for (const field of fields) {
-        if (el.hasOwnProperty(field)) {
-          obj[field] = el[field];
-        }
-      }
-
-      res.push(obj);
+      res.push(el.getFilteredFields(fields));
     });
 
     return res;
   }
 
   /**
-   * @param cameraId {string}
+   * @param entityId {string}
    * @param cameraOptions {{
    *  id: string,
    *  host: string,
@@ -53,22 +45,22 @@ module.exports = class CamerasCache {
    *  }
    * }}
    * */
-  set(cameraId, cameraOptions) {
-    if (this.has(cameraId)) {
-      this.removeById(cameraId);
+  set(entityId, cameraOptions) {
+    if (this.has(entityId)) {
+      this.removeById(entityId);
     }
 
     const camera = new CameraModel(cameraOptions);
 
-    this.cache.set(cameraId, camera);
+    this.cache.set(entityId, camera);
   }
 
   /**
-   * @param cameraId {string}
+   * @param entityId {string}
    * @return boolean
    * */
-  has(cameraId) {
-    return this.cache.has(cameraId);
+  has(entityId) {
+    return this.cache.has(entityId);
   }
 
   /**
@@ -79,16 +71,16 @@ module.exports = class CamerasCache {
   }
 
   /**
-   * @param cameraId {string}
+   * @param entityId {string}
    * */
-  removeById(cameraId) {
-    this.cache.delete(cameraId);
+  removeById(entityId) {
+    this.cache.delete(entityId);
   }
 
   /**
-   * @param cameraId {string}
+   * @param entityId {string}
    * */
-  getById(cameraId) {
-    return this.cache.get(cameraId);
+  getByEntityIdId(entityId) {
+    return this.cache.get(entityId);
   }
 };

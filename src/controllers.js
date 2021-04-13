@@ -4,7 +4,7 @@ const CamerasCache = require("./CamerasCache");
 /**
  * @param app {Express}
  * @param camerasOptions {{
- *  id: string,
+ *  entityId: string,
  *  host: string,
  *  username: string,
  *  password: string,
@@ -27,7 +27,7 @@ module.exports = function (app, camerasOptions) {
     if (camerasCache.size) {
       res.status(200).json({
         data: camerasCache.getFilteredFields([
-          "id",
+          "entityId",
           "isSoundSensorEnabled",
           "isMotionSensorEnabled",
         ]),
@@ -37,8 +37,8 @@ module.exports = function (app, camerasOptions) {
     }
   });
 
-  app.patch("/api/cameras/:cameraId", async function (req, res) {
-    const cameraId = req.params.cameraId;
+  app.patch("/api/cameras/:entityId", async function (req, res) {
+    const entityId = req.params.entityId;
     const { event } = req.body;
 
     if (!event) {
@@ -46,17 +46,17 @@ module.exports = function (app, camerasOptions) {
       return;
     }
 
-    if (!camerasCache.has(cameraId)) {
-      res.status(404).json({ error: `camera ${cameraId} not found` });
+    if (!camerasCache.has(entityId)) {
+      res.status(404).json({ error: `camera ${entityId} not found` });
       return;
     }
 
-    const camera = camerasCache.getById(cameraId);
+    const camera = camerasCache.getByEntityIdId(entityId);
 
     if (!typeof camera[event] === "function") {
       res
         .status(404)
-        .json({ error: `camera ${cameraId} hasn\'t ${event} event` });
+        .json({ error: `camera ${entityId} hasn\'t ${event} event` });
       return;
     }
 
