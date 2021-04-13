@@ -28,6 +28,6 @@
   },
   "schema": {
     "debug": "bool",
-    "isSwaggerEnabled": "bool",
+    "isSwaggerEnabled": "bool"
   }
 }
