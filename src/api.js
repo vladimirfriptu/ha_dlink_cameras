@@ -7,7 +7,7 @@ const axios = require("axios");
  *
  * @return {axios.AxiosPromise<void>}
  * */
-module.exports = function updateCameraSettings(host, createevent, auth) {
+function updateCameraSettings(host, createevent, auth) {
   return axios.get(`http://${host}/vb.htm`, {
     params: {
       language: "ie",
@@ -15,4 +15,29 @@ module.exports = function updateCameraSettings(host, createevent, auth) {
     },
     auth,
   });
+}
+
+const haApi = axios.create({
+  baseURL: `http://${process.env.HA_DOMAIN}/services`,
+  headers: {
+    Authorization: `Bearer ${process.env.SUPERVISOR_TOKEN}`,
+    "Content-Type": "application/json",
+  },
+});
+
+/**
+ * @param entityId {string}
+ * @param value {'on' | 'off'}
+ *
+ * @return {axios.AxiosPromise<void>}
+ * */
+function changeHaSensorValue(entityId, value) {
+  return haApi.post(`/input_boolean/turn_${value}`, {
+    entity_id: entityId,
+  });
+}
+
+module.exports = {
+  updateCameraSettings,
+  changeHaSensorValue,
 };

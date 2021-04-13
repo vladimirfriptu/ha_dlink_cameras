@@ -1,8 +1,9 @@
 {
   "debug": false,
+  "isSwaggerEnabled": false,
   "cameras": [
     {
-      "id": "000000235900",
+      "entityId": "000000235900",
       "host": "192.168.31.239",
       "username": "admin",
       "password": "",
