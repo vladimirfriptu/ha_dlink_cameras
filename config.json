@@ -20,7 +20,12 @@
         "host": "",
         "username": "",
         "password": "",
-        "createevent": {}
+        "createevent": {
+          "motionOn": "",
+          "motionOff": "",
+          "soundOn": "",
+          "soundOff": ""
+        }
       }
     ]
   },
@@ -32,13 +37,7 @@
         "entityId": "str",
         "host": "str",
         "username": "str",
-        "password": "str",
-        "createevent": {
-          "motionOn": "str",
-          "motionOff": "str",
-          "soundOn": "str",
-          "soundOff": "str"
-        }
+        "password": "str"
       }
     ]
   }
