@@ -9,10 +9,39 @@
   "homeassistant_api": true,
   "url": "https://github.com/vladimirfriptu/ha_dlink_cameras",
   "options": {
-    "debug": false
+    "debug": false,
+    "isSwaggerEnabled": false,
+    "cameras": [
+      {
+        "entityId": "",
+        "host": "",
+        "username": "",
+        "password": "",
+        "createevent": {
+          "motionOn": "",
+          "motionOff": "",
+          "soundOn": "",
+          "soundOff": ""
+        }
+      }
+    ]
   },
   "schema": {
-    "debug": "bool"
-  },
-  "map": ["config:rw"]
+    "debug": "bool",
+    "isSwaggerEnabled": "bool",
+    "cameras": [
+      {
+        "entityId": "str",
+        "host": "str",
+        "username": "str",
+        "password": "str",
+        "createevent": {
+          "motionOn": "str",
+          "motionOff": "str",
+          "soundOn": "str",
+          "soundOff": "str"
+        }
+      }
+    ]
+  }
 }
