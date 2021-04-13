@@ -20,12 +20,7 @@
         "host": "",
         "username": "",
         "password": "",
-        "createevent": {
-          "motionOn": "",
-          "motionOff": "",
-          "soundOn": "",
-          "soundOff": ""
-        }
+        "createevent": {}
       }
     ]
   },
