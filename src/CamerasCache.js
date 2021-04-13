@@ -17,7 +17,7 @@ module.exports = class CamerasCache {
   }
 
   /**
-   * @param fields {Array<'id' | 'host' | 'auth' | 'createevent' | 'isMotionSensorEnabled' | 'isSoundSensorEnabled'>}
+   * @param fields {Array<'entityId' | 'host' | 'auth' | 'createevent' | 'isMotionSensorEnabled' | 'isSoundSensorEnabled'>}
    * @return { Partial<CameraModel>[] }
    * */
   getFilteredFields(fields) {
@@ -33,7 +33,7 @@ module.exports = class CamerasCache {
   /**
    * @param entityId {string}
    * @param cameraOptions {{
-   *  id: string,
+   *  entityId: string,
    *  host: string,
    *  username: string,
    *  password: string,

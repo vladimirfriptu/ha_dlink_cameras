@@ -1,6 +1,6 @@
 {
   "debug": false,
-  "isSwaggerEnabled": false,
+  "isSwaggerEnabled": true,
   "cameras": [
     {
       "entityId": "000000235900",
