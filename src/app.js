@@ -10,7 +10,7 @@ async function initApp() {
 
   app.use(bodyParser.json());
 
-  await initSwagger(app);
+  if (options.isSwaggerEnabled) await initSwagger(app);
   initControllers(app, options.cameras);
 
   app.listen(process.env.EXPRESS_PORT);
