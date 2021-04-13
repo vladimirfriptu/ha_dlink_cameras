@@ -17,6 +17,7 @@ const CamerasCache = require("./CamerasCache");
  * }[]}
  * */
 module.exports = function (app, camerasOptions) {
+  console.log(camerasOptions);
   const camerasCache = new CamerasCache(camerasOptions);
 
   app.get("/api/status", function (req, res) {
