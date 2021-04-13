@@ -1,6 +1,6 @@
 {
   "name": "DLink cameras",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "slug": "dlink_cameras",
   "description": "DLink cameras manager",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
