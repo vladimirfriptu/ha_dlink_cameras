@@ -11,6 +11,7 @@
   "ports": {
     "4001/tcp": 4001
   },
+  "map": ["config:rw"],
   "options": {
     "debug": false,
     "isSwaggerEnabled": false,
