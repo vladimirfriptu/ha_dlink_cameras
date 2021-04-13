@@ -1,11 +1,37 @@
 const CameraModel = require("./models/CameraModel");
 
 module.exports = class CamerasCache {
+  /**
+   * @param cameras {{
+   *  entityId: string,
+   *  host: string,
+   *  username: string,
+   *  password: string,
+   *  createevent_motion_on: string,
+   *  createevent_motion_off: string,
+   *  createevent_sound_on: string,
+   *  createevent_sound_off: string,
+   * }[]}
+   * */
   constructor(cameras) {
     this.cache = new Map();
 
     cameras.forEach((el) => {
-      this.cache.set(el.id, new CameraModel(el));
+      this.cache.set(
+        el.entityId,
+        new CameraModel({
+          entityId: el.entityId,
+          host: el.host,
+          username: el.username,
+          password: el.password,
+          createevent: {
+            soundOff: el.createevent_sound_off,
+            soundOn: el.createevent_sound_on,
+            motionOn: el.createevent_motion_on,
+            motionOff: el.createevent_motion_off,
+          },
+        })
+      );
     });
   }
 

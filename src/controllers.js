@@ -8,16 +8,13 @@ const CamerasCache = require("./CamerasCache");
  *  host: string,
  *  username: string,
  *  password: string,
- *  createevent: {
- *   motionOn: string,
- *   motionOff: string,
- *   soundOn: string,
- *   soundOff: string
- *  }
+ *  createevent_motion_on: string,
+ *  createevent_motion_off: string,
+ *  createevent_sound_on: string,
+ *  createevent_sound_off: string,
  * }[]}
  * */
 module.exports = function (app, camerasOptions) {
-  console.log(camerasOptions);
   const camerasCache = new CamerasCache(camerasOptions);
 
   app.get("/api/status", function (req, res) {

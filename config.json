@@ -30,12 +30,10 @@
         "host": "",
         "username": "",
         "password": "",
-        "createevent": {
-          "motionOn": "",
-          "motionOff": "",
-          "soundOn": "",
-          "soundOff": ""
-        }
+        "createevent_motion_on": "",
+        "createevent_motion_off": "",
+        "createevent_sound_on": "",
+        "createevent_sound_off": ""
       }
     ]
   },
@@ -57,12 +55,10 @@
         "host": "str",
         "username": "str",
         "password": "str",
-        "createevent": {
-          "motionOn": "str",
-          "motionOff": "str",
-          "soundOn": "str",
-          "soundOff": "str"
-        }
+        "createevent_motion_on": "str",
+        "createevent_motion_off": "str",
+        "createevent_sound_on": "str",
+        "createevent_sound_off": "str"
       }
     ]
   }
