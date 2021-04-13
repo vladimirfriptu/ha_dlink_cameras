@@ -8,6 +8,9 @@
   "boot": "auto",
   "homeassistant_api": true,
   "url": "https://github.com/vladimirfriptu/ha_dlink_cameras",
+  "ports": {
+    "4001/tcp": null
+  },
   "options": {
     "debug": false,
     "isSwaggerEnabled": false,
