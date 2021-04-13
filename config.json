@@ -24,6 +24,10 @@
       "motion": 50000,
       "sound": 50000
     },
+    "sensors": {
+      "motion": "kitchen_motion_camera",
+      "sound": "kitchen_sound_camera"
+    },
     "cameras": [
       {
         "entityId": "",
@@ -48,6 +52,10 @@
     "sensor_live_delay": {
       "motion": "int?",
       "sound": "int?"
+    },
+    "sensors": {
+      "motion": "str",
+      "sound": "str"
     },
     "cameras": [
       {
