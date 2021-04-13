@@ -159,7 +159,7 @@ class CameraModel {
     ]);
 
     for (const key in res) {
-      if (res[key]?.error) {
+      if (res[key].error) {
         return res[key].error;
       }
     }
@@ -174,7 +174,7 @@ class CameraModel {
     ]);
 
     for (const key in res) {
-      if (res[key]?.error) {
+      if (res[key].error) {
         return res[key].error;
       }
     }

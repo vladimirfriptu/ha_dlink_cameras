@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 // todo поправить для прода
 const options = require("../data/options.json");
 
+require("./parser");
+
 async function initApp() {
   const app = express();
 

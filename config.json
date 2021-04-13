@@ -14,6 +14,15 @@
   "options": {
     "debug": false,
     "isSwaggerEnabled": false,
+    "logs_directory_path": "/config/www/camera_events",
+    "logs_parsing": {
+      "motion_match_name": "MOTION",
+      "sound_match_name": "SOUND"
+    },
+    "sensor_live_delay": {
+      "motion": 50000,
+      "sound": 50000
+    },
     "cameras": [
       {
         "entityId": "",
@@ -32,6 +41,15 @@
   "schema": {
     "debug": "bool",
     "isSwaggerEnabled": "bool",
+    "logs_directory_path": "str?",
+    "logs_parsing": {
+      "motion_match_name": "str?",
+      "sound_match_name": "str?"
+    },
+    "sensor_live_delay": {
+      "motion": "int?",
+      "sound": "int?"
+    },
     "cameras": [
       {
         "entityId": "str",

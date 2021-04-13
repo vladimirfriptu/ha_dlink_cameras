@@ -27,7 +27,7 @@ const haApi = axios.create({
 
 function changeHaSensorValue(service, entityId) {
   return haApi.post(`/input_boolean/${service}`, {
-    entity_id: entityId,
+    entity_id: `input_boolean.${entityId}`,
   });
 }
 
