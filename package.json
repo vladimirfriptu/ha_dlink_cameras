@@ -8,8 +8,7 @@
     "dev:watch": "nodemon ./build/index.ts",
     "build": "tsc",
     "build:watch": "tsc --watch",
-    "docker-build:dev": "docker build -t dlink_cameras -f Dockerfile.development .",
-    "docker-build:prod": "docker build -t dlink_cameras -f Dockerfile ."
+    "docker-build:dev": "docker build -t dlink_cameras -f Dockerfile.development ."
   },
   "dependencies": {
     "axios": "^0.21.1",

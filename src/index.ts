@@ -1,7 +1,10 @@
 import dotenv from "dotenv";
 import { initWatcher } from "./wathcer";
-import path from "path";
 
-dotenv.config({ path: path.resolve(__dirname, ".env") });
+dotenv.config({
+  path: process.env.ENV_PATH || "/.env",
+});
+
+console.log(process.env);
 
 initWatcher();
