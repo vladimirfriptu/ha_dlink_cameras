@@ -27,19 +27,7 @@
     "sensors": {
       "motion": "kitchen_motion_camera",
       "sound": "kitchen_sound_camera"
-    },
-    "cameras": [
-      {
-        "entityId": "",
-        "host": "",
-        "username": "",
-        "password": "",
-        "createevent_motion_on": "",
-        "createevent_motion_off": "",
-        "createevent_sound_on": "",
-        "createevent_sound_off": ""
-      }
-    ]
+    }
   },
   "schema": {
     "debug": "bool",
@@ -56,18 +44,6 @@
     "sensors": {
       "motion": "str",
       "sound": "str"
-    },
-    "cameras": [
-      {
-        "entityId": "str",
-        "host": "str",
-        "username": "str",
-        "password": "str",
-        "createevent_motion_on": "str",
-        "createevent_motion_off": "str",
-        "createevent_sound_on": "str",
-        "createevent_sound_off": "str"
-      }
-    ]
+    }
   }
 }

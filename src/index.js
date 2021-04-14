@@ -1,1 +1,1 @@
-require("./app");
+import "./wathcer_service";

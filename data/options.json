@@ -1,5 +1,5 @@
 {
-  "debug": false,
+  "debug": true,
   "isSwaggerEnabled": true,
   "logs_directory_path": "/config/www/camera_events",
   "sensors": {
@@ -9,17 +9,5 @@
   "sensor_live_delay": {
     "motion": 50000,
     "sound": 50000
-  },
-  "cameras": [
-    {
-      "entityId": "kitchen_camera",
-      "host": "192.168.31.239",
-      "username": "admin",
-      "password": "",
-      "createevent_motion_on": "0:1:0:30:0:1:Motion detection:7f:0:000000235900:0:1:01:ffff1",
-      "createevent_motion_off": "0:0:0:30:0:1:Motion detection:7f:0:000000235900:0:1:01:ffff1",
-      "createevent_sound_on": "1:1:0:30:8:1:Sound detection:7f:0:000000235900:0:1:02:fff1f",
-      "createevent_sound_off": "1:0:0:30:8:1:Sound detection:7f:0:000000235900:0:1:02:fff1f"
-    }
-  ]
+  }
 }
