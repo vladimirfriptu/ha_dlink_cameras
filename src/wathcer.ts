@@ -1,12 +1,11 @@
 import hound from "hound";
 import { readFile } from "./file_reader";
 import * as utils from "./utils";
-// @ts-ignore
-import config from "/data/options.json";
+import options from "./options";
 
 const READ_DELAY = 100;
 
-const watcher = hound.watch(config.logs_directory_path, {});
+const watcher = hound.watch(options.logs_directory_path, {});
 
 watcher.on("create", function (file: string) {
   setTimeout(function (): void {

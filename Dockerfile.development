@@ -2,6 +2,8 @@ FROM node:latest
 
 ENV LANG C.UTF-8
 
+RUN mkdir -p /config/www/camera_events
+
 COPY . .
 RUN npm install
 RUN npm install typescript -g

@@ -1,6 +1,5 @@
 import { changeHaSensorValue } from "./api";
-// @ts-ignore
-import config from "/data/options.json";
+import options from "./options";
 
 function createCacheValue(obj: Record<string, any>, id: string, delay: number) {
   return setTimeout(() => {
@@ -48,13 +47,13 @@ export function motionDetect(deviceId: string) {
   motionCache[deviceId] = createCacheValue(
     motionCache,
     deviceId,
-    config.sensor_live_delay.motion
+    options.sensor_live_delay.motion
   );
 }
 export function soundDetect(deviceId: string) {
   soundCache[deviceId] = createCacheValue(
     soundCache,
     deviceId,
-    config.sensor_live_delay.sound
+    options.sensor_live_delay.sound
   );
 }

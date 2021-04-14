@@ -1,17 +1,17 @@
 import * as fs from "fs";
 import { motionDetect, soundDetect } from "./sensors";
 import * as utils from "./utils";
-// @ts-ignore
-import config from "/data/options.json";
+
+import options from "./options";
 
 export function readFile(path: string, sensorId: string): void {
   utils.log("trigger " + sensorId + " event");
 
   switch (sensorId) {
-    case config.sensors.motion:
+    case options.sensors.motion:
       motionDetect(sensorId);
       break;
-    case config.sensors.sound:
+    case options.sensors.sound:
       soundDetect(sensorId);
       break;
     default:

@@ -1,5 +1,4 @@
-// @ts-ignore
-import config from "/data/options.json";
+import options from "./options";
 
 export function getSensorIdFromPath(path: string): string {
   const res = path.split("/");
@@ -8,7 +7,7 @@ export function getSensorIdFromPath(path: string): string {
 }
 
 export function log(...message: string[]): void {
-  if (config.debug) {
+  if (options.debug) {
     console.log(message);
   }
 }
