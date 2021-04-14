@@ -1,1 +1,1 @@
-import "./wathcer_service";
+import "./wathcer";
