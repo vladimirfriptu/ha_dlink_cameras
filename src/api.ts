@@ -1,4 +1,4 @@
-import axios, { AxiosPromise } from "axios";
+import axios from "axios";
 
 const haApi = axios.create({
   baseURL: `http://${process.env.HA_DOMAIN}/services`,
