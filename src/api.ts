@@ -8,16 +8,16 @@ const haApi = axios.create({
   },
 });
 
-export function changeHaSensorValue(
+export async function changeHaSensorValue(
   service: "turn_on" | "turn_off",
   entityId: string
-): AxiosPromise<{
-  attributes: object;
-  entity_id: string;
-  last_changed: string;
-  state: string;
-}> {
-  return haApi.post(`/input_boolean/${service}`, {
-    entity_id: `input_boolean.${entityId}`,
-  });
+): Promise<any> {
+  try {
+    await haApi.post(`/input_boolean/${service}`, {
+      entity_id: `input_boolean.${entityId}`,
+    });
+  } catch (err) {
+    console.log("HA api error");
+    console.log(err);
+  }
 }
