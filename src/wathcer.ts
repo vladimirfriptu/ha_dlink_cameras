@@ -5,18 +5,16 @@ import options from "./options";
 
 const READ_DELAY = 100;
 
-export function initWatcher() {
-  const watcher = hound.watch(options.logs_directory_path, {});
+const watcher = hound.watch(options.logs_directory_path, {});
 
-  watcher.on("create", function (file: string) {
-    setTimeout(function (): void {
-      readFile(file, utils.getSensorIdFromPath(file));
+watcher.on("create", function (file: string) {
+  setTimeout(function (): void {
+    readFile(file, utils.getSensorIdFromPath(file));
 
-      utils.log("start read for directory:\n", file);
-    }, READ_DELAY);
-  });
+    utils.log("start read for directory:\n", file);
+  }, READ_DELAY);
+});
 
-  console.log("start addon");
+console.log("start addon");
 
-  watcher.unwatch("./service.js");
-}
+watcher.unwatch("./service.js");

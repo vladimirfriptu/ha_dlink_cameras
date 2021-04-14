@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const haApi = axios.create({
-  baseURL: `http://${process.env.HA_DOMAIN}/services`,
+  baseURL: `http://supervisor/core/api/services`,
   headers: {
     Authorization: `Bearer ${process.env.SUPERVISOR_TOKEN}`,
     "Content-Type": "application/json",
