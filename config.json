@@ -18,7 +18,7 @@
     "sensor_live_delay": {
       "motion": 50000,
       "sound": 50000
-    },
+    }
   },
   "schema": {
     "debug": "bool",
