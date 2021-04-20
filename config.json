@@ -1,6 +1,6 @@
 {
   "name": "DLink cameras",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "slug": "dlink_cameras",
   "description": "DLink cameras manager",
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
@@ -8,9 +8,6 @@
   "boot": "auto",
   "homeassistant_api": true,
   "url": "https://github.com/vladimirfriptu/ha_dlink_cameras",
-  "ports": {
-    "4001/tcp": 4001
-  },
   "map": ["config:rw"],
   "options": {
     "debug": false,
