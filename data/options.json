@@ -1,11 +1,6 @@
 {
   "debug": true,
-  "isSwaggerEnabled": true,
   "logs_directory_path": "/config/www/camera_events",
-  "sensors": {
-    "motion": "kitchen_motion_camera",
-    "sound": "kitchen_sound_camera"
-  },
   "sensor_live_delay": {
     "motion": 50000,
     "sound": 50000
